@@ -1,0 +1,166 @@
+@startuml
+
+title __ShadowLife UML Diagram__\n
+skinparam dpi 500
+skinparam TitleFontSize 35
+skinparam NoteFontSize 16
+skinparam classAttributeIconSize 0
+skinparam classFontSize 18
+skinparam DefaultFontSize 16
+skinparam classFontColor Black
+skinparam backgroundColor NavajoWhite
+skinparam FooterFontColor Grey
+
+skinparam lineType polyline
+skinparam lineType ortho
+
+    abstract class Actor {
+        - actor: Image
+        - location: Point
+        + collideWith(): double
+        + draw(): void
+    }
+
+    abstract class MobileActor {
+        - direction: int
+        - isActive: boolean
+        - isCarrying: boolean
+        {static} - speed: double
+        {abstract} + update(): void
+        {abstract} + validateLocation(): boolean
+        + deactivate(MobileActor actor): void
+        + move(): void
+    }
+
+    class Gatherer {
+        + update(): void
+        - validateLocation(): boolean
+    }
+
+    class Thief {
+        - isConsuming : boolean
+        + update(): void
+        - validateLocation(): boolean
+    }
+
+
+    abstract class Forest {
+        - fruitNum : int
+        + takenFruit(): void
+    }
+
+    class Tree {
+        + draw(): void
+    }
+
+    class GoldenTree {
+    }
+
+
+    abstract class Depot {
+        - fruitNum : int
+        + draw(): void
+        + stolenFruit(): void
+        + storeFruit(): void
+    }
+
+    class Stockpile {
+    }
+
+    class Hoard {
+    }
+
+    class Fence {
+    }
+
+    class Sign {
+        - direction: int
+        + draw(): void
+    }
+
+    class MitosisPool {
+    }
+
+    class Pad {
+    }
+
+    class ShadowLife {
+        {static} - background: Image
+        {static} + main(String[] args): void
+        + drawGamePanel(): void
+        - keyboardOperation(Input input): void
+        + update(Input input): void
+    }
+
+
+    class ActorFactory {
+        {static} + getActor(String ActorType, Point location): void
+    }
+
+    class Timer {
+        - cooldown: double
+        - cooldownCount: double
+        + isCool(): boolean
+        + update(): void
+    }
+
+    class myUtil {
+        {static} + readFile(): void
+        {static} + validateArgs(): boolean
+        {static} + exitGame(): void
+        {static} + exitInvalidArgs(): void
+        {static} + exitTimeOut(): void
+    }
+
+  note left of myUtil
+    <b><color:royalBlue>Util class and factory class are</color>
+    <b><color:royalBlue>used but does not have association</color>
+    <b><color:royalBlue>relationship with any other entity</color>
+  end note
+
+  note right of ActorFactory
+    <b><color:royalBlue>Factory creates subclass </color>
+    <b><color:royalBlue>of Actor base on the input</color>
+  end note
+
+  ShadowLife -left-> Timer : tickTimer
+  ShadowLife *-- "1..* " Actor
+  ShadowLife -up-|> bagel.AbstractGame : extends >
+  note left of Timer : Timer class returns true \nwhen finish each tick period
+
+
+  Thief -right-|> MobileActor
+  Gatherer -left-|> MobileActor
+  MobileActor -down-|> Actor: extends >
+
+  Tree -up-|> Forest
+  GoldenTree -up-|> Forest
+  Forest -right-|> Actor
+
+  Stockpile -up-|> Depot
+  Hoard -up-|> Depot
+  Depot -right-|> Actor
+
+  Pad -up-|> Actor
+  Fence -up-|> Actor
+  Sign -up-|> Actor
+  MitosisPool -left-|> Actor
+
+
+  bagel -left[hidden]- myUtil
+  bagel -right[hidden]- ActorFactory
+  MitosisPool -right[hidden]- Sign
+  Stockpile -left[hidden]- Hoard
+  myUtil -down[hidden]-MobileActor
+  ActorFactory -down[hidden]-Timer
+
+right footer
+
+
+This is unimelb SWEN20003 2020s2 assignment 2 part 1
+ShadowLife is a simple simulation of a fictional universe
+UML designed by NuoyanChen (nuoyanc@student.unimelb.edu.au)
+
+endfooter
+
+@enduml
