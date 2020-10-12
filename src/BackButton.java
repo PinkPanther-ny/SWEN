@@ -2,7 +2,7 @@ import bagel.util.Point;
 
 public class BackButton extends AbstractButton{
     public BackButton() {
-        super(new Point(990, 190), 25, "res/images/backToMenu.png");
+        super(new Point(GamePanel.BUTTON_X, 190), 25, ShadowLife.IMAGE_FILE_FOLDER +"backToMenu.png");
     }
 
     @Override

@@ -23,8 +23,8 @@ import java.util.stream.Stream;
  * @author NuoyanChen (nuoyanc@student.unimelb.edu.au)
  */
 public final class myUtil {
-    private static final Font gameFont = new Font("res/font/VeraMono.ttf", 24);
-    private static final Font LOG_FONT = new Font("res/font/VeraMono.ttf", 16);
+    private static final Font gameFont = new Font(ShadowLife.FONT_FILE_FOLDER +"VeraMono.ttf", 24);
+    private static final Font LOG_FONT = new Font(ShadowLife.FONT_FILE_FOLDER +"VeraMono.ttf", 16);
 
     /**
      * Reading a csv to Arraylist of Actors

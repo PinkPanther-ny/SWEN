@@ -7,7 +7,7 @@
 public class Hoard extends Depot{
 
     public Hoard(double x, double y) {
-        super("res/images/hoard.png", x, y);
+        super(ShadowLife.IMAGE_FILE_FOLDER +"hoard.png", x, y);
     }
 
 }

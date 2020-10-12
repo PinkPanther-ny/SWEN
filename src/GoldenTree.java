@@ -8,7 +8,7 @@ public class GoldenTree extends Forest{
 
     public GoldenTree(double x, double y) {
 
-        super("res/images/gold-tree.png", x, y);
+        super(ShadowLife.IMAGE_FILE_FOLDER +"gold-tree.png", x, y);
         fruitNum = -1;
     }
 

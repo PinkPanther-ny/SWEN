@@ -24,7 +24,7 @@ public class Gatherer extends MobileActor{
      * @param direction Four direction of the Gatherer, UP, RIGHT, DOWN, LEFT which correspond to 0, 1, 2, 3
      */
     public Gatherer(double x, double y, int direction) {
-        super("res/images/gatherer.png", x, y, direction);
+        super(ShadowLife.IMAGE_FILE_FOLDER +"gatherer.png", x, y, direction);
     }
 
 

@@ -1,7 +1,4 @@
-import bagel.AbstractGame;
-import bagel.Image;
-import bagel.Input;
-import bagel.Window;
+import bagel.*;
 
 import java.util.ArrayList;
 
@@ -20,7 +17,7 @@ public class ShadowLife extends AbstractGame {
 
     public static final int TILE_WID = 64;
     /** Simulation background */
-    public static final String backgroundFile = "res/images/background.png";
+    public static final String backgroundFile = ShadowLife.IMAGE_FILE_FOLDER +"background.png";
 
     private static int tickCount = 0;
     private static Timer timer;
@@ -51,8 +48,13 @@ public class ShadowLife extends AbstractGame {
     public static final String RANDOM_FILENAME = "res/worlds/AN_RANDOM_ACTORS_PARTY.csv";
     private static final Timer RANDOM_GENERATOR_TIMER = new Timer(1200, false);
 
+    public static final int GAME_WINDOW_WID = 1024;
+    public static final int GAME_WINDOW_HEI = 768;
+    public static final String IMAGE_FILE_FOLDER = "res/images1/";
+    public static final String FONT_FILE_FOLDER = "res/font/";
+
     public ShadowLife() {
-        super(1024, 768, "ShadowLife NuoyanChen");
+        super(GAME_WINDOW_WID, GAME_WINDOW_HEI, "ShadowLife NuoyanChen");
         RandomWorldGenerator.GenerateCSV();
         background = new Image(backgroundFile);
         actors = new ArrayList<>();
@@ -80,12 +82,19 @@ public class ShadowLife extends AbstractGame {
         if(tickCount >= maxTicks){
             myUtil.exitTimeOut();
         }
-        background.drawFromTopLeft(0,0);
+
+        //background.drawFromTopLeft(0,0);
+
+        // Stretch by window size
+        background.draw(Window.getWidth()*0.5,Window.getHeight()*0.5, new DrawOptions().setScale( GAME_WINDOW_WID / background.getWidth(), GAME_WINDOW_HEI / background.getHeight() ));
+
+
+
 
         if(!isGameStart){
 
             if(RANDOM_GENERATOR_TIMER.isCool()){
-                RandomWorldGenerator.GenerateCSV(Math.random(), RANDOM_FILENAME);
+                RandomWorldGenerator.GenerateCSV(0.4 * Math.random(), RANDOM_FILENAME);
             }
 
             startMenu.draw();

@@ -14,7 +14,7 @@ public class Thief extends MobileActor{
     }
 
     Thief(double x, double y, int direction) {
-        super("res/images/thief.png", x, y, direction);
+        super(ShadowLife.IMAGE_FILE_FOLDER +"thief.png", x, y, direction);
         isConsuming = false;
     }
 

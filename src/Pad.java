@@ -7,7 +7,7 @@
 public class Pad extends Actor{
 
     public Pad(double x, double y) {
-        super("res/images/pad.png", x, y);
+        super(ShadowLife.IMAGE_FILE_FOLDER +"pad.png", x, y);
     }
 
 }

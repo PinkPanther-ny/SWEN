@@ -8,15 +8,15 @@ public class StartMenu {
     private ArrayList<Actor> actors = new ArrayList<>();
     private final ArrayList<String> directories;
     private static final int fontHei = 26;
-    private static final Font MAP_SELECT_FONT = new Font("res/font/dpcomic.ttf", fontHei);
+    private static final Font MAP_SELECT_FONT = new Font(ShadowLife.FONT_FILE_FOLDER +"dpcomic.ttf", fontHei);
 
     private static final int titleHei = 48;
     private static final String title = "ShadowLife Game";
-    private static final Font titleFont = new Font("res/font/lilliput steps.ttf", titleHei);
+    private static final Font titleFont = new Font(ShadowLife.FONT_FILE_FOLDER +"lilliput steps.ttf", titleHei);
 
     private static final int titleHei1 = 30;
     private static final String title1 = "\nCreated by Nuoyan Chen";
-    private static final Font titleFont1 = new Font("res/font/lilliput steps.ttf", titleHei1);
+    private static final Font titleFont1 = new Font(ShadowLife.FONT_FILE_FOLDER +"lilliput steps.ttf", titleHei1);
 
     private static final Point FIRST_LINE_LOCATION = new Point(Window.getWidth()*0.25, Window.getHeight()*0.3);
     private static final boolean RANDOM_BG = false;

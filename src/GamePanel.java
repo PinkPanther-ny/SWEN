@@ -29,16 +29,17 @@ public class GamePanel {
     private static final double SAVE_DURATION = 4000;
     private static final int SAVE_HEI = 28;
     private static final String SAVE_LOG = "CURRENT GAME STATUS SAVED TO \n";
-    private static final Font SAVE_FONT = new Font("res/font/lilliput steps.ttf", SAVE_HEI);
+    private static final Font SAVE_FONT = new Font(ShadowLife.FONT_FILE_FOLDER +"lilliput steps.ttf", SAVE_HEI);
 
 
     /* ---------------------------- IMAGE SETTINGS ---------------------------- */
+    public static final double BUTTON_X = 0.967 * Window.getWidth();
     private static final AbstractButton questionButton = new QuestionButton();
     private static final AbstractButton backButton = new BackButton();
     private static final AbstractButton saveButton = new SaveButton();
 
     private static boolean SHOW_PANEL = false;
-    private static final Image PANEL = new Image("res/images/panel.png");
+    private static final Image PANEL = new Image(ShadowLife.IMAGE_FILE_FOLDER +"panel.png");
 
     /* ---------------------------- DIALOG SETTINGS ---------------------------- */
     private static final double lineSpacing = 0.035;
@@ -47,7 +48,7 @@ public class GamePanel {
     private static final double PANEL_HEI = 75;
     private static final double ICON_WID = 48;
 
-    private static final Font INS_FONT = new Font("res/font/VeraMono.ttf", 22);
+    private static final Font INS_FONT = new Font(ShadowLife.FONT_FILE_FOLDER +"VeraMono.ttf", 22);
 
     private static final double INS_START_HEI = 0.3;
     private static final String[] INSTRUCTIONS = {
@@ -61,7 +62,7 @@ public class GamePanel {
             "HAVE FUN!!!"
     };
 
-    private static final Font SAYING_FONT_NAME = new Font("res/font/yoster.ttf", 19);
+    private static final Font SAYING_FONT_NAME = new Font(ShadowLife.FONT_FILE_FOLDER +"yoster.ttf", 19);
     private static final String[] MY_SAYINGS = {
             "So.. Do you believe in God?",
             "Are you sure you are not one of them? \nAn actor have your own algorithm?",
@@ -97,7 +98,7 @@ public class GamePanel {
     private static final String PLACE_LOG = "You can place actor by clicking panel or using shortcut key";
     private static final String WARN_LOG = "You cannot place at current selected tile!";
     private static final String SELL_LOG = "Press S to sell everything in this tile";
-    private static final Image PAUSE = new Image("res/images/pause.png");
+    private static final Image PAUSE = new Image(ShadowLife.IMAGE_FILE_FOLDER +"pause.png");
     
     /* ---------------------------- HOURGLASS SETTINGS ---------------------------- */
     private static final String HG_LOG = "This is an Hourglass";
@@ -105,13 +106,13 @@ public class GamePanel {
     private static final double HG_TRANSPARENCY = 0.75;
     private static final double HG_DETECT_RADIUS = 90;
     private static final double HG_WID = 20, HG_HEI = 120;
-    private static final Point HG_TOPLEFT = new Point(985, 630);
+    private static final Point HG_TOPLEFT = new Point(0.96 * Window.getWidth(), 0.82 * Window.getHeight());
 
     private static final Colour HG_FULL_COLOR = new Colour(0, 0, 1, HG_TRANSPARENCY);
     private static final Colour HG_EMPTY_COLOR = new Colour(1, 0, 0, HG_TRANSPARENCY);
 
-    private static final Point TS_LOCATION = new Point(786, 736);
-    private static final Font TS_FONT = new Font("res/font/VeraMono.ttf", 14);
+    private static final Point TS_LOCATION = new Point(HG_TOPLEFT.x - 197, HG_TOPLEFT.y + 106);
+    private static final Font TS_FONT = new Font(ShadowLife.FONT_FILE_FOLDER +"VeraMono.ttf", 14);
 
     
     GamePanel(){
@@ -198,20 +199,18 @@ public class GamePanel {
         questionButton.draw();
         backButton.draw();
         saveButton.draw();
-        if(questionButton.clicked(input)){
 
+        if(questionButton.clicked(input)){
             if(colorTimer.isCool()) {
+
                 for (int i = 0; i < drawOptions.length; i++) {
                     drawOptions[i] = (new DrawOptions().setBlendColour(0.9*Math.random(), 0.2*Math.random(), 0.8*Math.random() ) );
                 }
             }
 
             for(int i = 0; i< INSTRUCTIONS.length; i++){
-
                 myUtil.drawCentralizedString(INS_FONT, INSTRUCTIONS[i], INS_START_HEI + i * lineSpacing, drawOptions[i]);
             }
-
-
 
         }else if(isSelect) {
             if(canPlace) {

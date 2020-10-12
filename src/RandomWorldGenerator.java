@@ -10,8 +10,8 @@ public class RandomWorldGenerator {
 
     public static final String OUTPUT_FILE = ShadowLife.RANDOM_FILENAME;
 
-    public static final int WID_WORLD = 1024;
-    public static final int HEI_WORLD = 768;
+    public static final int WID_WORLD = ShadowLife.GAME_WINDOW_WID;
+    public static final int HEI_WORLD = ShadowLife.GAME_WINDOW_HEI;
     public static final int TILE_WEI = ShadowLife.TILE_WID;
 
     public static final int X_TILES = WID_WORLD/TILE_WEI;

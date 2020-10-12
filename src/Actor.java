@@ -15,7 +15,7 @@ public abstract class Actor{
 
     private final Image actor;
     private Point location;
-    private final static Font gameFont = new Font("res/font/VeraMono.ttf", 24);
+    private final static Font gameFont = new Font(ShadowLife.FONT_FILE_FOLDER +"VeraMono.ttf", 24);
 
     public Actor(String filepath, double x, double y){
         this(filepath, new Point(x, y));
