@@ -1,6 +1,7 @@
 import bagel.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * <p>Main entry of the program, A Simple simulation of a fictional universe</p>
@@ -140,17 +141,10 @@ public class ShadowLife extends AbstractGame {
             tickCount++;
         }
 
-        /* Stationary object drawn at bottom layer */
-        for(Actor actor: actors){
-            if( !(actor instanceof MobileActor) ){
-                actor.draw();
-            }
-        }
-        for(Actor actor: actors){
-            if(actor instanceof MobileActor){
-                actor.draw();
-            }
-        }
+
+        /* Movable actors drawn at top layer */
+        actors.sort(Comparator.comparingInt(a -> ((a instanceof MobileActor) ? 1 : -1)));
+        actors.forEach(Actor::draw);
 
         /* Project Customisation Methods */
         if(SHADOWLIFE_CUSTOMISATION) {
