@@ -39,7 +39,7 @@ public class GamePanel {
     private static final AbstractButton saveButton = new SaveButton();
 
     private static boolean SHOW_PANEL = false;
-    private static final Image PANEL = new Image(ShadowLife.IMAGE_FILE_FOLDER +"panel.png");
+    private static final Image PANEL = new Image(ShadowLife.SKIN_PACK_FOLDER +"panel.png");
 
     /* ---------------------------- DIALOG SETTINGS ---------------------------- */
     private static final double lineSpacing = 0.035;
@@ -98,7 +98,7 @@ public class GamePanel {
     private static final String PLACE_LOG = "You can place actor by clicking panel or using shortcut key";
     private static final String WARN_LOG = "You cannot place at current selected tile!";
     private static final String SELL_LOG = "Press S to sell everything in this tile";
-    private static final Image PAUSE = new Image(ShadowLife.IMAGE_FILE_FOLDER +"pause.png");
+    private static final Image PAUSE = new Image(ShadowLife.SKIN_PACK_FOLDER +"pause.png");
     
     /* ---------------------------- HOURGLASS SETTINGS ---------------------------- */
     private static final String HG_LOG = "This is an Hourglass";

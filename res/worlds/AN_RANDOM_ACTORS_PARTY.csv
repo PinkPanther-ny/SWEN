@@ -1,7 +1,7 @@
-Pool,640,384
-SignRight,0,512
-Pool,576,320
-Thief,64,384
-Pool,64,704
-SignUp,640,576
-SignUp,832,128
+Thief,0,256
+SignDown,832,320
+Tree,192,384
+Pad,896,0
+Tree,896,128
+Fence,448,0
+Gatherer,0,0

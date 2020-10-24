@@ -9,7 +9,7 @@ import bagel.util.Point;
 public class Tree extends Forest{
 
     public Tree(double x, double y) {
-        super(ShadowLife.IMAGE_FILE_FOLDER +"tree.png", x, y);
+        super(ShadowLife.SKIN_PACK_FOLDER +"tree.png", x, y);
         fruitNum = 3;
 
     }

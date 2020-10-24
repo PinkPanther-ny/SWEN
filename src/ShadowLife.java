@@ -18,7 +18,7 @@ public class ShadowLife extends AbstractGame {
 
     public static final int TILE_WID = 64;
     /** Simulation background */
-    public static final String backgroundFile = ShadowLife.IMAGE_FILE_FOLDER +"background.png";
+    public static final String backgroundFile = ShadowLife.SKIN_PACK_FOLDER +"background.png";
 
     private static int tickCount = 0;
     private static Timer timer;
@@ -33,6 +33,8 @@ public class ShadowLife extends AbstractGame {
     public static final String DATAFILE_FOLDER = "res/";
     public static boolean SHOW_DATAFILES_DIRS = false;
     public static final boolean SHOW_CSV = false;
+
+    /* Set to true will follow the project spec, which exit the game when all of the actors are inactive */
     public static final boolean EXIT_ON_NO_ACTIVE = false;
 
     /* Project Customisation Attributes */
@@ -51,11 +53,11 @@ public class ShadowLife extends AbstractGame {
 
     public static final int GAME_WINDOW_WID = 1024;
     public static final int GAME_WINDOW_HEI = 768;
-    public static final String IMAGE_FILE_FOLDER = "res/images1/";
+    public static final String SKIN_PACK_FOLDER = "res/images1/";
     public static final String FONT_FILE_FOLDER = "res/font/";
 
     public ShadowLife() {
-        super(GAME_WINDOW_WID, GAME_WINDOW_HEI, "ShadowLife NuoyanChen");
+        super(GAME_WINDOW_WID, GAME_WINDOW_HEI, "ShadowLife created by NuoyanChen");
         RandomWorldGenerator.GenerateCSV();
         background = new Image(backgroundFile);
         actors = new ArrayList<>();
@@ -142,9 +144,9 @@ public class ShadowLife extends AbstractGame {
         }
 
 
-        /* Movable actors drawn at top layer */
-        actors.sort(Comparator.comparingInt(a -> ((a instanceof MobileActor) ? 1 : -1)));
-        actors.forEach(Actor::draw);
+        // Sort Movable actors to the bottom of the array and draw
+        // but not modify the original array
+        drawActors(new ArrayList<>(actors));
 
         /* Project Customisation Methods */
         if(SHADOWLIFE_CUSTOMISATION) {
@@ -153,6 +155,14 @@ public class ShadowLife extends AbstractGame {
 
     }
 
+    /**
+     * Movable actors drawn at top layer
+     * Sort Movable actors to the bottom of the array
+     * */
+    private static void drawActors(ArrayList<Actor> actors){
+        actors.sort(Comparator.comparingInt(a -> ((a instanceof MobileActor) ? 1 : -1)));
+        actors.forEach(Actor::draw);
+    }
 
     public static void reset(){
         tickCount = 0;

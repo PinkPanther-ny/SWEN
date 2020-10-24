@@ -7,7 +7,7 @@
 public class Stockpile extends Depot{
 
     public Stockpile(double x, double y) {
-        super(ShadowLife.IMAGE_FILE_FOLDER +"cherries.png", x, y);
+        super(ShadowLife.SKIN_PACK_FOLDER +"cherries.png", x, y);
     }
 
 }

@@ -5,7 +5,7 @@ import bagel.util.Point;
 public class QuestionButton extends AbstractButton {
 
     QuestionButton() {
-        super(new Point(GamePanel.BUTTON_X, 120), 25, ShadowLife.IMAGE_FILE_FOLDER +"question.png");
+        super(new Point(GamePanel.BUTTON_X, 120), 25, ShadowLife.SKIN_PACK_FOLDER +"question.png");
     }
 
     @Override

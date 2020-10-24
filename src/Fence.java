@@ -7,7 +7,7 @@
 public class Fence extends Actor{
 
     Fence(double x, double y){
-        super(ShadowLife.IMAGE_FILE_FOLDER +"fence.png", x, y);
+        super(ShadowLife.SKIN_PACK_FOLDER +"fence.png", x, y);
     }
 
 }

@@ -16,7 +16,7 @@ public class Sign extends Actor{
      * @param direction Four direction of the sign, UP, RIGHT, DOWN, LEFT which correspond to 0, 1, 2, 3
      */
     public Sign(double x, double y, int direction) {
-        super(ShadowLife.IMAGE_FILE_FOLDER +"up.png", x, y);
+        super(ShadowLife.SKIN_PACK_FOLDER +"up.png", x, y);
         this.direction = direction;
     }
 

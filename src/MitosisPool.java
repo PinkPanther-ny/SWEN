@@ -7,7 +7,7 @@
 public class MitosisPool extends Actor{
 
     public MitosisPool(double x, double y) {
-        super(ShadowLife.IMAGE_FILE_FOLDER +"pool.png", x, y);
+        super(ShadowLife.SKIN_PACK_FOLDER +"pool.png", x, y);
     }
 
 }
