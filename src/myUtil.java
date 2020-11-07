@@ -127,7 +127,8 @@ public final class myUtil {
                     .collect(Collectors.toList());
             directories.addAll(collect);
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            myUtil.exitInvalidDirs();
         }
 
         if(directories.size()==0){
@@ -135,6 +136,8 @@ public final class myUtil {
         }
 
         if(ShadowLife.SHOW_DATAFILES_DIRS){
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             directories.forEach(System.out::println);
         }
 
